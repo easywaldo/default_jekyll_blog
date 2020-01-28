@@ -1,0 +1,60 @@
+---
+layout: post
+title: 트랜스파일링 겪어보기
+description: ES6 를 ES5 로 바꿔주는 도구
+date:   2018-12-28 11:00:00 +0530
+categories: code
+tags: [ software development ]
+author: easywaldo
+---
+
+# 트랜스파일링
+
+불과 몇년전만에도 자바스크립트를 사용할 때는 대부분 jQuery 를 이용해서 
+화면개발에 이용하는 언어라고만 나는 알고 있었고 또 그렇게 사용을 하고 있었다.
+
+하지만 Node.js 와 React 를 접하면서 아.. 이런 JS 문법이 있었구나?!
+하는 놀라움을 연신 터트리던 때가 3년 전의 일이다.
+
+{% highlight javascript %}
+// ES5
+var x = function(x, y) {
+   return x * y;
+}
+
+// ES6
+const x = (x, y) => x * y;
+{% endhighlight %}
+
+![shocking]({{ "https://img1.daumcdn.net/thumb/R720x0/?fname=https://t1.daumcdn.net/liveboard/taling/7004ffce02684554b6206460073ea0ff.jpg" | absolute_url }})
+
+하지만 이렇게 ES6 부터의 근래의 자바스크립트들의 최신 문법들은 MS의 오래된 유산 중 하나인 
+인터넷 익스플로어와 그외 기타? 브라우저 에서는 제대로 지원이 불가능하다.
+
+그래서 새로이 추가되는 JS 문법들을 이러한 브라우저들에 대해서도 동작을 할 수 있도록
+예전의 ES5 문법으로 변환시켜주는 작업을 수행해 주는데
+이런 작업을 트랜스파일링 이라고 한다.
+
+참고로 ES6 문법별에 대한 브라우저 호환성 테이블은 [compatibility table] 로 정리된 
+블로그에서 자세한 확인이 가능하다.
+
+트랜스파일링을 지원해주는 여러 도구들이 있는데
+대표적인 것이 Babel 이다.
+
+![babel]({{ "http://ondras.zarovi.cz/slides/2015/seznam-posezeni/img/babel.png" | absolute_url }})
+
+Babel 을 이용해서 ES5로 변환하기 위한 방법은 여러가지가 있는데
+내가 이용한 방법은 2가지 이다.
+
+- Babel-cli 를 설치하여 ₩preset₩ 을 ₩load₩ 하여 변환하는 방법
+- npm build 스크립트를 이용하여 변환하는 방법
+
+babel-cli 와 함께 아래의 패키지들을 설치하였으며
+npm install babel-cli
+npm babel-loader
+npm babel-preset-env
+
+.babelrc 에 preset 을 명시하였다.
+
+[compatibility table]: https://kangax.github.io/compat-table/es6/
+

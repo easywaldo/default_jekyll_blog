@@ -1,0 +1,4 @@
+- name: 예스이십사 운영
+  descr: "상품연동 / 상품전시 및 상세 / 주문결제 / 블로그 / 메일발송 "
+  image: pong.png
+  #github: https://github.com/renyuanz/leonids
