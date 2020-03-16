@@ -6,6 +6,7 @@ date:   2020-02-02 11:00:00 +0530
 categories: code
 tags: [ software development ]
 author: easywaldo
+comments: true
 ---
 
 ### 소프트웨어 공학에서의 아키텍트란?
