@@ -1,3 +1,11 @@
+- name: 소셜빈 운영
+  descr: "회원 및 핫트링크 신규 서비스 런칭"
+  image: pong.png
+
+- name: 더블유컨셉 운영
+  descr: "상품검색 / 상품전시 및 상세 / 주문결제 / 클레임 / 정산 / 메일발송 "
+  image: pong.png
+
 - name: 예스이십사 운영
   descr: "상품연동 / 상품전시 및 상세 / 주문결제 / 블로그 / 메일발송 "
   image: pong.png

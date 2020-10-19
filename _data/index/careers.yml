@@ -1,12 +1,18 @@
 # careers section data
 # if you don't have language feature(language.yml is empty), ignore "i18n" items
+
+- name: 소셜빈
+  link: https://hott.kr
+  date: 2020.05 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+  job: Programmer
+
 - name: Wconcept
   link: https://www.wconcept.co.kr
-  date: July 2017 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+  date: 2018.10 - 2020.05
   job: Programming Internship
 
 - name: 오마이랩
-  link: 
+  link: https://www.ohmyhotel.com
   date: 2018.04 - 2018.10
   job: Programmer
 
