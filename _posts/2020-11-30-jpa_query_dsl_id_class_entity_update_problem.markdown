@@ -6,6 +6,7 @@ date:   2020-11-30 23:55:00 +0530
 categories: code
 tags: [ JPA, QueryDSL ]
 author: easywaldo
+comments: true
 ---
 
 ##### 엔터티 조회 후 객체 수정 
