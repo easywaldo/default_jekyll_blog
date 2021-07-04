@@ -9,7 +9,7 @@ author: easywaldo
 comments: true
 ---
 
-#### HikariCP
+## HikariCP
 
 DB 와의 커넥션을 관리할 수 있도록 해주는 여러 라이브러리 들이 있는데 이중 하나가
 HikariCP 이다.
@@ -24,14 +24,16 @@ HikariCP 이다.
    "Simplicity is prerequisite for reliability."
          - Edsger Dijkstra
 
- 
+## Validation Query
+
  HikariCP 의 특징 중에서 DB 와의 커넥션 풀을 계속 유지하지는 않는다는 것이다.
  다시 말하자면 커넥션 타임아웃 설정을 하더라도 데이터베이스 차원에서의 커넥션 타임아웃이 발생하게 되는 경우 HikariCP 는 이를 존중한다는 것이다.
 
- 따라서 기존의 커넥션 풀에서 활동을 했던 어플리케이션 스레드가 커넥션이 유효한지를 확인을 함으로써 유효하지 않는 경우에는 다시 커넥션을 생성함으로써 정상적으로 DB 작업을
- 수행할 수 있도록 해야한다.
+ 따라서 기존의 커넥션 풀에서 활동을 했던 어플리케이션 스레드가 커넥션이 유효한지를 확인을 함으로써 유효하지 않는 경우에는 다시 커넥션을 생성함으로써 정상적으로 DB 작업을 수행할 수 있도록 해야한다.
 
- 이를 가능하게 해주는 것이 바로 Validation Query 이다.
+ 이를 가능하게 해주는 것이 바로 Validation Query 이다.   
+
+## HikariCP Connection Configuration
 
  ```java
          HikariConfig config = new HikariConfig();
@@ -60,16 +62,20 @@ HikariCP 이다.
  이렇게 설정을 하게 되면 HikariCP 가 SQL 질의를 하기 전에 해당 쿼리를 먼저 수행하여
  커넥션 검증을 할 수 있는 것이다.
 
- 만약 검증하여 커넥션이 끊긴 상황이라면 HikariCP 는 어떤 작업을 수행하는지 알아보자.
+## 커넥션 유효성 실패가 발생하는 경우
+
+만약 검증하여 커넥션이 끊긴 상황이라면 HikariCP 는 어떤 작업을 수행하는지 알아보자.
 
  1. DB 와의 커넥션이 끊기게 될때 커넥션 실패 오류가 발생이 된다.
 
  2. 이후 커넥션을 생성하게 된다.
 
- 3. 다시 유효성 확인 쿼리 실행이 되고 정상 확인이 되면 본래의 SQL 질의가 이뤄진다.
+ 3. 다시 유효성 확인 쿼리 실행이 되고 정상 확인이 되면 결국에는 본래의 SQL 질의가 이뤄진다.
 
  ![hikari_cp_validation_fail]({{ "images/post/hikaricp/hikari_cp_validation_fail.png" | absolute_url }})
 
+
+## 커넥션 유효성 확인 성공하는 경우
 
  커넥션이 정상적인 경우에는 아래와 같이 유효성 쿼리가 실행이 된다.
 
